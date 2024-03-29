@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "remove-yt-low",
+  "version": "0.0.2",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "dependencies": {
+    "@devvit/public-api": "0.10.17"
+  },
+  "devDependencies": {
+    "typescript": "5.3.2"
+  }
+}
