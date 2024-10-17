@@ -63,7 +63,10 @@ Devvit.addTrigger({
             throw new Error("Network response was not OK");
         }
 
-        const data = await response.json();
+        const resp = response;
+        const respText = await resp.text();
+        console.log(respText);
+        const data = await resp.json();
         console.log(data);
     },
 });
