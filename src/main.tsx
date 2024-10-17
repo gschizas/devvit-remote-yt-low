@@ -71,6 +71,9 @@ Devvit.addTrigger({
         if (data.pageInfo.totalResults != 1) {
             throw new Error('There should be exactly one result');
         }
+        if (data.items[0].statistics.hiddenSubscriberCount) {
+            throw new Error('Hidden subscriber count');
+        }
     },
 });
 
