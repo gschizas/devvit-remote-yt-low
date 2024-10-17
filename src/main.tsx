@@ -34,7 +34,14 @@ Devvit.addTrigger({
             return;
         }
 
-        const minimumSubscribers: number | undefined = await context.settings.get('minimum-subscribers');
+        const minimumSubscribersRaw: number | undefined = await context.settings.get('minimum-subscribers');
+        if (minimumSubscribersRaw == undefined) {
+            console.error('Minimum subscribers is not set');
+            return;
+        }
+        let minimumSubscribers: number;
+        // @ts-ignore
+        minimumSubscribers = minimumSubscribersRaw;
         console.log(`Minimum Subscribers: ${minimumSubscribers}`);
 
         const apiKey: string | undefined = await context.settings.get('youtube-api-key');
