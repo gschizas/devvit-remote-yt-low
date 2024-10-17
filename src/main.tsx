@@ -74,6 +74,17 @@ Devvit.addTrigger({
         if (data.items[0].statistics.hiddenSubscriberCount) {
             throw new Error('Hidden subscriber count');
         }
+        const subscriberCount: number = data.items[0].statistics.subscriberCount;
+        if (subscriberCount < minimumSubscribers) {
+            console.log(`Subscriber count is too low: ${subscriberCount} < ${minimumSubscribers}`);
+            const message = `This YouTube channel has ${subscriberCount} subscribers. To submit videos, you need at least ${minimumSubscribers} subscribers.`;
+            await context.reddit.addRemovalNote({
+                itemIds: [event?.post?.id],
+                reasonId: '',
+                modNote: message
+            });
+            await context.reddit.remove(event?.post?.id, false);
+        }
     },
 });
 
