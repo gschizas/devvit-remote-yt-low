@@ -54,10 +54,9 @@ Devvit.addTrigger({
         const params = new URLSearchParams({
             part: 'statistics',
             forHandle: authorId,
+            key: apiKey
         });
-        const request = new Request('https://youtube.googleapis.com/youtube/v3/channels?' + params, {
-            headers: {Authorization: apiKey},
-        });
+        const request = new Request('https://youtube.googleapis.com/youtube/v3/channels?' + params);
 
         const response = await fetch(request);
         if (!response.ok) {
