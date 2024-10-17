@@ -1,28 +1,12 @@
 # Remove Low Subscriber YouTube Channel Submissions
 
-## Description
-
-This 
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-
-## Installation
-
-1. Clone the repository.
-2. Install the dependencies using `npm install`.
+This project is designed to help moderators filter out YouTube channel submissions that have a low number of subscribers.
 
 ## Usage
 
-1. Run the app using `npm start`.
-2. Open your browser and navigate to `http://localhost:3000`.
-
-## Contributing
-
-Contributions are welcome! Please follow the guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md).
+After installing the application, you need to enter a YouTube API key 
+(see [Google's instructions on how to get it](https://developers.google.com/youtube/v3/getting-started))
+and a threshold of subscribers under which the application will automatically remove the submissions.
 
 ## License
 
