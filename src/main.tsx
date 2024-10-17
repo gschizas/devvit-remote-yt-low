@@ -29,9 +29,14 @@ Devvit.addTrigger({
         console.log(`Author URL: ${event?.post?.media?.oembed?.authorUrl}`);
         const authorUrl = event?.post?.media?.oembed?.authorUrl;
         const authorId = authorUrl?.split('@').pop();
+        const postId = event?.post?.id;
         console.log(`Author ID: ${authorId}`);
         if (!authorId) {
             console.error('Could not retrieve author Id');
+            return;
+        }
+        if (!postId) {
+            console.error('Could not retrieve post Id');
             return;
         }
 
@@ -80,11 +85,11 @@ Devvit.addTrigger({
             console.log(`Subscriber count is too low: ${subscriberCount} < ${minimumSubscribers}`);
             const message = `This YouTube channel has ${subscriberCount} subscribers. To submit videos, you need at least ${minimumSubscribers} subscribers.`;
             await context.reddit.addRemovalNote({
-                itemIds: [event?.post?.id],
+                itemIds: [postId],
                 reasonId: '',
                 modNote: message
             });
-            await context.reddit.remove(event?.post?.id, false);
+            await context.reddit.remove(postId, false);
         }
     },
 });
