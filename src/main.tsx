@@ -68,6 +68,9 @@ Devvit.addTrigger({
         console.log(respText);
         const data = await resp.json();
         console.log(data);
+        if (data.pageInfo.totalResults != 1) {
+            throw new Error('There should be exactly one result');
+        }
     },
 });
 
