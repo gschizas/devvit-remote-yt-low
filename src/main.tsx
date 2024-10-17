@@ -31,6 +31,7 @@ Devvit.addTrigger({
         const authorId = authorUrl?.split('@').pop();
         console.log(`Author ID: ${authorId}`);
         if (!authorId) {
+            console.error('Could not retrieve author Id');
             return;
         }
 
